@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Lion School</string>
+    <string name="support">SUPPORT</string>
+    <string name="socialMedia">SOCIAL MEDIA</string>
+    <string name="tell">(11)4774-4700</string>
+    <string name="email">LIONSCHOOL@GMAIL.COM</string>
+    <string name="location">RUA TCC, CENTRO,JANDIRA</string>
+    <string name="year">YEAR:</string>
+    <string name="status">STATUS:</string>
+    <string name="title_activity_courses">Courses</string>
+    <string name="title_activity_support">Support</string>
+</resources>
