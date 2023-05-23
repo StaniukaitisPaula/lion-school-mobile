@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -43,7 +44,8 @@ fun Support(name: String) {
             modifier = Modifier.fillMaxWidth()
             ) {
             Card(
-                backgroundColor = Color(223, 251, 213)
+                backgroundColor = Color(223, 251, 213),
+                shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)
             ) {
                 Icon(
                     modifier = Modifier.padding(8.dp, 8.dp), painter = painterResource(id = R.drawable.baseline_arrow),
@@ -60,6 +62,7 @@ fun Support(name: String) {
                     )
                 }
             }
+            Spacer(modifier = Modifier.height(80.dp))
                 Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally,)  {
                     Row() {
                 Icon(
@@ -70,10 +73,10 @@ fun Support(name: String) {
                     }
                     Spacer(modifier = Modifier.height(20.dp))
                     Row() {
-//                Icon(
-//                    painter = painterResource(id = R.drawable.baseline_email_24),
-//                    contentDescription = ""
-//                )
+                Icon(
+                    painter = painterResource(id = R.drawable.call),
+                    contentDescription = ""
+                )
                         Text(text = stringResource(id = R.string.email))
                     }
                     Spacer(modifier = Modifier.height(20.dp))
@@ -95,24 +98,25 @@ fun Support(name: String) {
                 fontWeight = FontWeight.Bold,
                 fontSize = 34.sp,
             )
-                Row() {
-                    Image(
-                        modifier = Modifier.size(30.dp),
-                        painter = painterResource(id = R.drawable.youtube),
-                        contentDescription = "")
+                Row(
 
-                    Image(
-                        modifier = Modifier.size(30.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.youtube),
+                        contentDescription = ""
+                    )
+                    Icon(
                         painter = painterResource(id = R.drawable.instagram),
-                        contentDescription = "")
-                    Image(
-                        modifier = Modifier.size(30.dp),
+                        contentDescription = ""
+                    )
+                    Icon(
                         painter = painterResource(id = R.drawable.twitter),
-                        contentDescription = "")
-                    Image(
-                        modifier = Modifier.size(30.dp),
+                        contentDescription = ""
+                    )
+                    Icon(
                         painter = painterResource(id = R.drawable.facebook),
-                        contentDescription = "")
+                        contentDescription = ""
+                    )
             }
         }
     }
