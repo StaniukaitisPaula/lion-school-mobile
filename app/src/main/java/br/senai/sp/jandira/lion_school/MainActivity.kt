@@ -53,9 +53,9 @@ class MainActivity : ComponentActivity() {
 fun LionHome(name: String) {
      val contex = LocalContext.current
 
-    var alunos by remember {
-        mutableStateOf(listOf<br.senai.sp.jandira.lion_school.model.Course>())
-    }
+    //var alunos by remember {
+   //     mutableStateOf(listOf<br.senai.sp.jandira.lion_school.model.Course>())
+   // }
 
 
     Column(
@@ -121,24 +121,24 @@ fun LionHome(name: String) {
                     val  openCourse = Intent(contex, Courses::class.java)
                     contex.startActivity(openCourse),
 
-                    val call = RetrofitFactory().getCourseService()
+                   // val call = RetrofitFactory().getCourseService()
 
-                    call.enqueue(object : Callback<CourseList> {
+                //    call.enqueue(object : Callback<CourseList> {
 
 
-                        override fun onResponse(
-                            call: Call<CourseList>,
-                            response: Response<CourseList>,
-                        ) {
-                            alunos = response.body()!!.alunos
+                  //      override fun onResponse(
+                       //     call: Call<CourseList>,
+                      //      response: Response<CourseList>,
+                     //   ) {
+                      //      alunos = response.body()!!.alunos
 
-                        }
+                     //   }
 
-                        override fun onFailure(call: Call<CourseList>, t: Throwable) {
-                            Log.i("ds2m", "onFailure: ${t.message} ")
-                        }
+                       // override fun onFailure(call: Call<CourseList>, t: Throwable) {
+                      //      Log.i("ds2m", "onFailure: ${t.message} ")
+                       // }
 
-                    })
+                    //})
                 },
                     modifier= Modifier
                         .width(187.dp)
