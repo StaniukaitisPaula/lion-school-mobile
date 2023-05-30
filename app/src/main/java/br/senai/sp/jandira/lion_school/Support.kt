@@ -1,9 +1,11 @@
 package br.senai.sp.jandira.lion_school
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -39,6 +42,8 @@ class Support : ComponentActivity() {
 
 @Composable
 fun Support(name: String) {
+    val contex = LocalContext.current
+
     Column(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier.fillMaxWidth()
@@ -48,7 +53,10 @@ fun Support(name: String) {
                 shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)
             ) {
                 Icon(
-                    modifier = Modifier.padding(8.dp, 8.dp), painter = painterResource(id = R.drawable.baseline_arrow),
+                    modifier = Modifier.padding(8.dp, 8.dp).clickable {
+                        val  openSupport = Intent(contex, MainActivity::class.java)
+                        contex.startActivity(openSupport)
+                    }, painter = painterResource(id = R.drawable.baseline_arrow),
                     contentDescription = "",
                 )
                 Spacer(modifier = Modifier.height(200.dp))
@@ -99,21 +107,26 @@ fun Support(name: String) {
                 fontSize = 34.sp,
             )
                 Row(
-
+                    modifier = Modifier.padding(40.dp),
                 ) {
                     Icon(
+                        modifier = Modifier.size(35.dp),
                         painter = painterResource(id = R.drawable.youtube),
-                        contentDescription = ""
+                        contentDescription = "",
+
                     )
                     Icon(
+                        modifier = Modifier.size(35.dp),
                         painter = painterResource(id = R.drawable.instagram),
                         contentDescription = ""
                     )
                     Icon(
+                        modifier = Modifier.size(35.dp),
                         painter = painterResource(id = R.drawable.twitter),
                         contentDescription = ""
                     )
                     Icon(
+                        modifier = Modifier.size(35.dp),
                         painter = painterResource(id = R.drawable.facebook),
                         contentDescription = ""
                     )

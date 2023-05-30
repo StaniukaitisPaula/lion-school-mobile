@@ -1,15 +1,19 @@
 package br.senai.sp.jandira.lion_school
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,25 +41,41 @@ class Courses : ComponentActivity() {
 
 @Composable
 fun Courses(name: String) {
+    val contex = LocalContext.current
+
     Column(modifier = Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            
+        Card(
+            backgroundColor = Color(245, 245, 245),
+            shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)
         ) {
-            Row( modifier = Modifier.fillMaxWidth()) {
-                Icon(
-                    modifier = Modifier.padding(8.dp, 8.dp),
-                    painter = painterResource(id = R.drawable.baseline_arrow),
-                    contentDescription = "",
-                )
+            Column(modifier = Modifier.fillMaxWidth()) {
 
-                Text(
-                    text = stringResource(id = R.string.app_name),
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 24.sp
-                )
+//           Spacer(modifier = Modifier.height(300.dp))
+                Row(modifier = Modifier.fillMaxWidth()) {
+
+                    Icon(
+                        modifier = Modifier
+                            .padding(8.dp, 8.dp)
+                            .clickable {
+                                val openSupport = Intent(contex, MainActivity::class.java)
+                                contex.startActivity(openSupport)
+                            }, painter = painterResource(id = R.drawable.baseline_arrow),
+                        contentDescription = "",
+                    )
+                    Spacer(modifier = Modifier.width(110.dp))
+
+                    Text(
+                        text = stringResource(id = R.string.course),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 24.sp,
+
+                        )
+                }
+                Spacer(modifier = Modifier.height(200.dp))
+                Column() {
+                    Text(text = stringResource(id = R.string.status))
+                }
             }
-
         }
         Column() {
             
